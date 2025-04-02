@@ -4,7 +4,7 @@ export async function GET(_request: Request, {params}: {params: Promise<{id: str
     const {id} = await params;
     const comment = comments.find(comment => comment.id === parseInt(id))
     
-    return new Response(JSON.stringify(comment))
+    return  Response.json(comment)
 }
 
 export async function PATCH(request: Request, {params}: {params: Promise<{id: string}>}){
@@ -15,7 +15,7 @@ export async function PATCH(request: Request, {params}: {params: Promise<{id: st
 
      comments[index].text = text;
 
-     return new Response(JSON.stringify(comments[index]));
+     return  Response.json(comments[index]);
 }
 
 export async function DELETE(
